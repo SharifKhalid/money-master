@@ -31,6 +31,7 @@ const displyPhone = elements => {
         // Loop 
         for(const element of elements) {
             
+            
             // create new div
             const div = document.createElement('div');
             div.classList.add('col');
@@ -66,20 +67,37 @@ const phoneDetail = name => {
     // Create div for detail information 
     const div = document.createElement('div');
     div.innerHTML= `
-    <div class="card" style="width: 18rem;">
+    <div id="detail-div" class="card" style="width: 18rem;">
         <img src="${name.data.image}" class="card-img-top" alt="">
 
         <div class="card-body">
-            <h5 class="card-title">${name.data.name}</h5>
+            <h5 class="card-title fw-bold">${name.data.name}</h5>
             <h5 class="card-text">${name.data.releaseDate}</h5>
         </div>
-            <h5> Main Features </h5>
+            <h5 class="fw-bold ms-1"> Main Features </h5>
         <ul>
             <li><span class="fw-bold">Storage:</span> ${name.data.mainFeatures.storage}</li>
             <li><span class="fw-bold">Disply Size:</span> ${name.data.mainFeatures.displaySize}</li>
             <li><span class="fw-bold">Chip Set:</span> ${name.data.mainFeatures.chipSet}</li>
             <li><span class="fw-bold">Memory:</span> ${name.data.mainFeatures.memory}</li>
         </ul>
+        <h5 class="fw-bold ms-1"> Sensors </h5>
+        <ul>
+            <li>${name.data.mainFeatures.sensors[0]}</li>
+            <li>${name.data.mainFeatures.sensors[1]}</li>
+            <li>${name.data.mainFeatures.sensors[2]}</li>
+            <li>${name.data.mainFeatures.sensors[3]}</li>
+            <li>${name.data.mainFeatures.sensors[4]}</li>
+        </ul>
+        <h5 class="fw-bold ms-1"> Others </h5>
+        <ul>
+            <li><span class="fw-bold">WLAN:</span>${name.data.others.WLAN}</li>
+            <li><span class="fw-bold">Bluetooth:</span>${name.data.others.Bluetooth}</li>
+            <li><span class="fw-bold">GPS:</span>${name.data.others.GPS}</li>
+            <li><span class="fw-bold">NFC:</span>${name.data.others.NFC}</li>
+            <li><span class="fw-bold">USB:</span>${name.data.others.USB}</li>
+        </ul>
+
     </div>
     `
     detailInformation.appendChild(div);
