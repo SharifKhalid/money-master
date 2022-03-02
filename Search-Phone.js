@@ -28,14 +28,10 @@ const displyPhone = elements => {
         alertshow.appendChild(alert);    
     }
 
-    // if( elements.length <=20){
-    //     console.log('working');
-    // }
-    // else{
-    //     console.log('larger than 20');
-    // }
+        // Loop 
         for(const element of elements) {
             
+            // create new div
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
@@ -45,7 +41,6 @@ const displyPhone = elements => {
                     <h3 class="">${element.phone_name}</h3>
                     <h3 class="">${element.brand}</h3>
                     <h4> Sensors </h4> 
-                    
                     <button id="details" onclick="detailShow('${element.slug}')" type="button" class="btn btn-primary btn-lg"> Show Details </button>
                     </div>
                 </div>
@@ -54,18 +49,17 @@ const displyPhone = elements => {
         };
 }
 
+    // URL for detail information
 const detailShow = slug =>{
-    console.log(slug);
-
     const url =`https://openapi.programming-hero.com/api/phone/${slug}`
     fetch(url)
     .then(res => res.json())
     .then(data => phoneDetail(data)); 
 }
 
+    // Function for detail information
 const phoneDetail = name => {
     
-  
     const detailInformation = document.getElementById('detail-information');
     detailInformation.textContent='';
     
