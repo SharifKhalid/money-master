@@ -13,9 +13,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Search Button -->
+
+    <!-- <nav class="navbar navbar-light bg-light">
+        <div class="container my-4 justify-content-center">
+          
+          <form class="d-flex">
+            <input id ="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button onclick="searchPhone()" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav> -->
+
+    <div class="input-group mb-3  my-4 ">
+        
+        <input id ="searchInput" type="text" class="form-control " placeholder="Phone search" aria-label="Recipient's username" aria-describedby="button-addon2">
+        
+        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+    </div>
     
-
-
+    <!-- Search Result Card -->
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        
+    </div>
 
     <!-- JavaScript Link -->
     <script src="/Search-Phone.js"></script>
