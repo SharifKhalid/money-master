@@ -18,6 +18,11 @@ const displyPhone = elements => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
     
+    // for clear interface when search
+    const detailInformation = document.getElementById('detail-information');
+    detailInformation.textContent='';
+
+
     // Showing Phone is not found
     const alertshow = document.getElementById('alert-show');
     alertshow.textContent = '';
