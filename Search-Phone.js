@@ -11,6 +11,7 @@ const searchPhone = () => {
      .then(data => displyPhone(data.data));
      console.log(data);
 }
+
     // data disply function
 const displyPhone = elements => { 
     const searchResult = document.getElementById('search-result');
@@ -45,7 +46,7 @@ const displyPhone = elements => {
                     <h3 class="">${element.brand}</h3>
                     <h4> Sensors </h4> 
                     
-                    <button id="details" type="button" class="btn btn-primary btn-lg"> Show Details </button>
+                    <button id="details" onclick="detailShow('${element.slug}')" type="button" class="btn btn-primary btn-lg"> Show Details </button>
                     </div>
                 </div>
             `
@@ -53,3 +54,39 @@ const displyPhone = elements => {
         };
 }
 
+const detailShow = slug =>{
+    console.log(slug);
+
+    const url =`https://openapi.programming-hero.com/api/phone/${slug}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => phoneDetail(data)); 
+}
+
+const phoneDetail = name => {
+    
+  
+    const detailInformation = document.getElementById('detail-information');
+    detailInformation.textContent='';
+    
+    // Create div for detail information 
+    const div = document.createElement('div');
+    div.innerHTML= `
+    <div class="card" style="width: 18rem;">
+        <img src="${name.data.image}" class="card-img-top" alt="">
+
+        <div class="card-body">
+            <h5 class="card-title">${name.data.name}</h5>
+            <h5 class="card-text">${name.data.releaseDate}</h5>
+        </div>
+            <h5> Main Features </h5>
+        <ul>
+            <li><span class="fw-bold">Storage:</span> ${name.data.mainFeatures.storage}</li>
+            <li><span class="fw-bold">Disply Size:</span> ${name.data.mainFeatures.displaySize}</li>
+            <li><span class="fw-bold">Chip Set:</span> ${name.data.mainFeatures.chipSet}</li>
+            <li><span class="fw-bold">Memory:</span> ${name.data.mainFeatures.memory}</li>
+        </ul>
+    </div>
+    `
+    detailInformation.appendChild(div);
+}
